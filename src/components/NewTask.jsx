@@ -7,6 +7,9 @@ export default function NewTask({ onAdd }) {
   }
 
   function handleClick() {
+    if (enteredTask.trim() === "") {
+      return;
+    }
     onAdd(enteredTask);
     setEnteredTask("");
   }
@@ -17,6 +20,7 @@ export default function NewTask({ onAdd }) {
         onChange={handleChange}
         type="text"
         className="w-64 px-2 py-1 rounded-sm bg-stone-200"
+        value={enteredTask}
       />
       <button
         onClick={handleClick}
